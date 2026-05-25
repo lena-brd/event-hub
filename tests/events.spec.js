@@ -27,7 +27,7 @@ test.describe('The events from Event Hub page', () => {
     await page.goto('/');
     const loginPage = new LoginPage(page);
     await loginPage.login(email, password);
-
+    await page.waitForLoadState('networkidle');
     await page.locator('#nav-events').click();
     await expect(page).toHaveURL('/events');
   });
