@@ -6,6 +6,8 @@ const email = process.env.EMAIL;
 const password = process.env.PASSWORD;
 
 test('Login to the vent Hub page', async ({ page }) => {
+  console.log('Email loaded:', email ? 'Yes' : 'No (undefined)');
+  console.log('Password loaded:', password ? 'Yes' : 'No (undefined)');
   await page.goto('/');
   const loginPage = new LoginPage(page);
   await loginPage.login(email, password);

@@ -24,10 +24,12 @@ async function createCardEvent(page) {
 
 test.describe('The events from Event Hub page', () => {
   test.beforeEach(async ({ page }) => {
+    console.log('Email loaded:', email ? 'Yes' : 'No (undefined)');
+    console.log('Password loaded:', password ? 'Yes' : 'No (undefined)');
     await page.goto('/');
     const loginPage = new LoginPage(page);
     await loginPage.login(email, password);
-    await page.waitForLoadState('networkidle');
+
     await page.locator('#nav-events').click();
     await expect(page).toHaveURL('/events');
   });
