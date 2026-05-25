@@ -7,6 +7,8 @@ import path from 'path';
 dotenv.config();
 
 let eventName = `Music Event in Bratislava - ${Date.now()}`;
+const email = process.env.EMAIL;
+const password = process.env.PASSWORD;
 
 async function createCardEvent(page) {
   const createEvent = new CreateEvent(page);
@@ -23,8 +25,6 @@ async function createCardEvent(page) {
 
 test.describe('The events from Event Hub page', () => {
   test.beforeEach(async ({ page }) => {
-    const email = process.env.EMAIL;
-    const password = process.env.PASSWORD;
     await page.goto('/');
     const loginPage = new LoginPage(page);
     await loginPage.login(email, password);

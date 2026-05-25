@@ -24,4 +24,4 @@ class CreateEvent {
   }
 }
 
-module.exports = { CreateEvent };
+export { CreateEvent };
