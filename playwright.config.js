@@ -17,11 +17,12 @@ export default defineConfig({
   // forbidOnly: !!process.env.CI,
   // retries: process.env.CI ? 2 : 0,
   // workers: process.env.CI ? 1 : undefined,
-  timeout: 60000,
   reporter: 'html',
 
   use: {
     /* Base URL to use in actions like `await page.goto('')`. */
+    navigationTimeout: 30000,
+    actionTimeout: 15000,
     baseURL: 'https://eventhub.rahulshettyacademy.com',
     browserName: 'chromium',
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
