@@ -1,8 +1,6 @@
 import { test, expect } from '@playwright/test';
 import { LoginPage } from '../utils/login-page.js';
-import dotenv from 'dotenv';
-import path from 'path';
-dotenv.config();
+require('dotenv').config();
 
 const email = process.env.EMAIL;
 const password = process.env.PASSWORD;
