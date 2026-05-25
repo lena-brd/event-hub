@@ -2,13 +2,12 @@ import { test, expect } from '@playwright/test';
 import { LoginPage } from '../utils/login-page.js';
 import { CreateEvent } from '../utils/creating-events.js';
 import { BookingEvent } from '../utils/book-event.js';
-import dotenv from 'dotenv';
-import path from 'path';
-dotenv.config();
+require('dotenv').config();
 
-let eventName = `Music Event in Bratislava - ${Date.now()}`;
 const email = process.env.EMAIL;
 const password = process.env.PASSWORD;
+
+let eventName = `Music Event in Bratislava - ${Date.now()}`;
 
 async function createCardEvent(page) {
   const createEvent = new CreateEvent(page);
